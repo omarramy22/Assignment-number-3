@@ -51,6 +51,13 @@ public:
 	{
 		arr.push_back(d1); 
 	}
+	void display()
+	{
+		cout << " This is the details of the order with ID " << Id << endl; 
+		elec_cart.display(); 
+		food_cart.display(); 
+		book_cart.display(); 
+	}
 	template <typename T>
 	 void applydiscounts(shoppingcart<T> &x)
 	{
@@ -67,6 +74,9 @@ public:
 						{
 							product z = arr.at(j).applydiscount(x.getproduct(i));
 							x.update(z);
+							elec_cart.update(z); 
+							food_cart.update(z); 
+							book_cart.update(z); 
 							arr.erase(arr.begin() + j);
 							cond = true;
 						}
@@ -78,13 +88,14 @@ public:
 
 					}
 				}
-			}
+			}		
 	}
+
 	 
 
-	  void checkout(shoppingcart<electronicsproduct> x, shoppingcart<foodproduct> y, shoppingcart<booksproduct> z)
+	  void checkout()
 	  {
-		  cout << "the total money to be paid for the order with id " << Id << " is " << x.getprice() + y.getprice() + z.getprice(); 
+		  cout << "the total money to be paid for the order with id " << Id << " is " << elec_cart.getprice() + food_cart.getprice() + book_cart.getprice() << endl; 
 	  }
 
 };

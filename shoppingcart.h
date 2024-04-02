@@ -92,7 +92,7 @@ public:
 	{
 		for (int i = 0; i < customerproducts.size(); i++)
 		{
-			cout << "the product number " << i + 1 << " in your cart is " << customerproducts.at(i) << "\n";
+			cout << customerproducts.at(i) << "\n";
 		}
 	}
 	float getprice()
@@ -106,21 +106,24 @@ public:
 		return sum; 
 	}
 
-	void update(product& x)
+	bool update(product& x)
 	{
 		bool cond = false;
-		int count = 0;
-		while (!cond)
+		for (int i =0; i<getproductssize(); i++)
 		{
-			if (getproduct(count).getname() == x.getname())
+			if (getproduct(i).getname() == x.getname())
 			{
 				cond = true;
 				cout << "Update!! to the shopping cart " << endl;
-				remove_for_update(getproduct(count)); // removing the old object 
+				remove_for_update(getproduct(i)); // removing the old object 
 				add_for_update(x); // putting a new object with new specifications (price, quantity)
 			}
-			count++;
+			return cond;
+			
 		}
+		
+		if (cond == false)
+			return cond; 
 	}
 
 
