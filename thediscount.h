@@ -12,7 +12,6 @@ class thediscount {
 private: 
 	int PERCENT;
 	int FIXED;
-	string d_fixed = "$" + to_string(fixed);
 	bool BOGO;
 	string COUPON;
 	string name; 
@@ -28,23 +27,26 @@ public:
 		if (enumtype == 0)
 		{
 			COUPON = x; 
-			name = COUPON; 
+			name = COUPON;
+		
 
 		}
 		else if (enumtype == 1)
 		{
 			PERCENT = stoi(x); 
 			name = to_string(PERCENT);
+			
 		}
 		else if (enumtype == 2)
 		{
-				BOGO == true; 
 				name = "bogo"; 
+				
 		}
 		else if (enumtype == 3)
 		{
 			FIXED = stoi(x); 
 			name = to_string(FIXED); 
+
 		}
 	}
 	 string getname()
@@ -62,7 +64,7 @@ public:
 			return s;
 
 		}
-		else if (stoi(name) == PERCENT)
+		else if (name == to_string(PERCENT))
 		{
 			s.setprice_per_unit(s.getprice_per_unit() - s.getinitialprice() * PERCENT / 100);
 			return s;
@@ -73,7 +75,7 @@ public:
 				s.setprice_per_unit(s.getinitialprice() / 2);
 			return s;
 		}
-		else if (stoi(name) == FIXED)
+		else if (name == to_string(FIXED))
 		{
 			if (FIXED < s.getprice_per_unit())
 				s.setprice_per_unit(s.getprice_per_unit() - FIXED);

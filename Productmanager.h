@@ -96,6 +96,8 @@ public:
 					}
 				}
 			}
+			display(); 
+			cout << endl;
 			return products;
 		}
 		else if (x == "quantity")
@@ -112,6 +114,8 @@ public:
 					}
 				}
 			}
+			display();
+			cout << endl;
 			return products;
 		}
 		else if (x == "Name")
@@ -128,6 +132,8 @@ public:
 					}
 				}
 			}
+			display();
+			cout << endl; 
 			return products;
 		}
 	}
@@ -169,9 +175,10 @@ public:
 			}
 			return sum / count; 
 	}
-	friend std::void operator<<(std::ostream& os, product p)
+	friend std::ostream& operator<<(std::ostream& os, productmanager p)
 	{
-		display(); 
+		p.display();
+		return os; 
 	}
 };
 #endif
