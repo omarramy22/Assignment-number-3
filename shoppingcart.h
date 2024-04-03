@@ -119,6 +119,10 @@ public:
 				add_for_update(x); // putting a new object with new specifications (price, quantity)
 				return cond;
 			}
+<<<<<<< HEAD
+			return cond;
+=======
+>>>>>>> 7de360411bca4833a62b01d63a14d8ec2c1d174b
 			
 		}
 		
