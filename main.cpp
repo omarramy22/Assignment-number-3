@@ -57,6 +57,11 @@ int main()
 	del1.checkout(); 
 	del2.display(); 
 	del2.checkout();
+	p1.update(food1);
+	p1.update(food2);
+	p1.update(book1);
+	p1.update(elect1);
+	p1.display(); 
 
 }
 
