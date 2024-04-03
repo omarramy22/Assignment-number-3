@@ -117,6 +117,7 @@ public:
 				cout << "Update!! to the shopping cart " << endl;
 				remove_for_update(getproduct(i)); // removing the old object 
 				add_for_update(x); // putting a new object with new specifications (price, quantity)
+				return cond;
 			}
 			return cond;
 			
