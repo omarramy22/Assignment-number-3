@@ -30,9 +30,6 @@
     <ClInclude Include="theproduct.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="discount.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="shoppingcart.h">
       <Filter>Header Files</Filter>
     </ClInclude>

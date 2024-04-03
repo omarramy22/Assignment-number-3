@@ -8,14 +8,15 @@ using namespace std;
 class electronicsproduct : public product
 {
 private: 
-	int warranty; 
+	float warranty; 
 	string factory; 
 
 public :
 	enum electronicstype { laptop, mobile, watch } enumtype;
-	electronicsproduct (string n, float p, int q, int w, string f, electronicstype t ) : product(n, p, q), warranty(w), factory(f), enumtype(t) {}
+	electronicsproduct (string n, float p, int q, float w, string f, electronicstype t ) : product(n, p, q), warranty(w), factory(f), enumtype(t) {}
+	electronicsproduct() {}; 
 
-	void setwarranty(int w)
+	void setwarranty(float w)
 	{
 		warranty = w; 
 	}
@@ -23,7 +24,7 @@ public :
 	{
 		factory = f; 
 	}
-	int getwarranty()
+	float getwarranty() 
 	{
 		return warranty; 
 	}

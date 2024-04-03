@@ -15,13 +15,14 @@ using namespace std;
 int main()
 {
 	booksproduct book1("Alchemist", 40, 100, "Couelo", booksproduct::novel); 
-	electronicsproduct elect1("Ideapad", 600, 5, 2, "Lenovo ", electronicsproduct::laptop); 
+	electronicsproduct elect1("Ideapad", 600, 5, 2.0, "Lenovo ", electronicsproduct::laptop); 
 	foodproduct food1("Mango", 10, 25, 5, foodproduct::fruit); 
 	foodproduct food2("Apple", 50, 20, 10, foodproduct::fruit); 
-	electronicsproduct elect2("Xiaomi", 1000, 10, 3, "Xiaomi", electronicsproduct::mobile); 
+	electronicsproduct elect2("Xiaomi", 1000, 10, 3.0, "Xiaomi", electronicsproduct::mobile); 
 	thediscount d1(thediscount::coupon);
 	thediscount d2(thediscount::bogo);
 	productmanager <product> p1;
+	productmanager<electronicsproduct> p2; 
 	p1.add(elect1);
 	p1.add(food1);
 	p1.add(book1);
@@ -33,6 +34,17 @@ int main()
 	p1 - elect2; 
 	p1 + elect2; 
 	cout << p1; 
+	vector<float> arr; 
+
+	for (int i = 0; i < p1.getproductssize(); i++)
+	{
+		if (p1.getproduct(i).iselectronics() == true)
+		{
+			arr.push_back(p1.getproduct(i).getwarranty());
+			cout << p1.getproduct(i).getwarranty();
+		}
+	}
+
 	shoppingcart <booksproduct>cart1; 
 	shoppingcart <foodproduct>cart2;
 	shoppingcart <electronicsproduct>cart3;

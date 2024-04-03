@@ -11,6 +11,7 @@ private:
 	int quantity;
 	float initial_price = price_per_unit; 
 	int initialquantity = quantity; 
+	int warranty = 0; 
 public: 
 
 	product(string n, float p, int q) : name(n), price_per_unit(p), quantity(q) {}
@@ -54,8 +55,8 @@ public:
 	{
 		return false; 
 	}
-	virtual int getwarranty() {
-		return 0; 
+	virtual float getwarranty() {
+		return warranty; 
 
 	}
 

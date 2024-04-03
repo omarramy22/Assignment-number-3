@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include<vector>
+#include "Electronicsproduct.h"
 #ifndef productmanager_h
 #define productmanager_h
 using namespace std;
@@ -137,44 +138,25 @@ public:
 			return products;
 		}
 	}
-	void setelect()
+	template <class T>
+	float get_max_warranty()
 	{
-		for (int i = 0; i < products.size(); i++) {
-			if (products.at(i).iselectronics() == true)
-				arr.push_back(products.at(i)); 
+
+	}
+
+	template<>
+		float get_max_warranty() {
+		float maxwarranty = 0.0; 
+		for (int i =0; i<hu.getproductssize(); i++)
+		{
+			if (hu.getproduct(i).getwarranty() > maxwarranty)
+				maxwarranty = hu.getproduct(i).getwarranty(); 
+
 		}
+		return maxwarranty;
 	}
-	int get_max_warranty() {
-		setelect(); 
-		int maxwar = 0;
-		for (int i = 0; i < arr.size(); i++) {
-			if (arr.at(i).getwarranty() >= maxwar) {
-				maxwar = products.at(i).getwarranty();
-			}
-		}
-		return maxwar;
-	}
-	int get_min_warranty() {
-		setelect();
-		int minwar = 90000;
-		for (int i = 0; i < arr.size(); i++) {
-			if (arr.at(i).getwarranty() <= minwar) {
-				minwar = products.at(i).getwarranty();
-			}
-		}
-		return minwar;
-	}
-	float get_avg_warrranty()
-	{
-			setelect();
-			int count = 0; 
-			float sum = 0.0; 
-			for (int i = 0; i < arr.size(); i++) {
-				sum = sum + arr.at(i).getwarranty(); 
-				count++; 
-			}
-			return sum / count; 
-	}
+
+	
 	friend std::ostream& operator<<(std::ostream& os, productmanager p)
 	{
 		p.display();
